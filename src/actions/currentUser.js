@@ -29,5 +29,26 @@ export const login = (credentials, history) => {
             }
         })
         .catch(console.log)
+      }
+  }
+  
+    export const getCurrentUser = () => {
+        return dispatch => {
+            return fetch("http://localhost:3001/api/v1/get_current_user", {
+                credentials: "include",
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            })
+            .then(resp => resp.json())
+            .then(resp => {
+                if (resp.error) {
+                    alert(resp.error)
+                } else {
+                    dispatch(setCurrentUser(resp.data))
+                }
+            })
+            .catch(console.log)
+        }
     }
-}
