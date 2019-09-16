@@ -6,7 +6,7 @@ const initialState = {
 export default (state = initialState, aciton) => {
     switch (aciton.type) {
         case "UPDATE_LOGIN_FORM":
-            return aciton.user
+            return aciton.formData
         default:
             return state
     }
