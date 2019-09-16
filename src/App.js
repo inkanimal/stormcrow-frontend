@@ -9,7 +9,7 @@ import { getCurrentUser } from "./actions/currentUser";
 class App extends React.Component {
   
    componentDidMount(){
-       getCurrentUser()
+       this.props.getCurrentUser()
 
    }
 
