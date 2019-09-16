@@ -3,6 +3,17 @@ import { connect } from 'react-redux';
 import { updateLoginForm } from '../actions/loginForm';
 
 const Login = (username, password, updateLoginForm) => {
+ 
+    const handleInputChange = e => {
+        const { name, value } = e.target
+        const updatedFormInfo = {
+            ...loginFormData,
+            [name]: value
+        }
+        updateLoginForm(updatedFormInfo)
+    }
+
+
     return (
         <form onSubmit=()>
            <input placeholder="username" value={username} name="username" type="text" onChange={}/>
