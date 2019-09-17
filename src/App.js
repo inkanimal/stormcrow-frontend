@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Login from "./components/Login";
+import Logout from "./components/Logout";
 import { connect } from 'react-redux';
 import { getCurrentUser } from "./actions/currentUser";
 
@@ -16,13 +17,13 @@ class App extends React.Component {
    render(){
      return (
         <div className="App">
-         Hello 
+         props.currentUser ? <Logout/> : <Login/>
        </div>
      );
    }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ currentUser }) => {
   return {
     currentUser
   }
