@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Login from "./components/Login";
-import Logout from "./components/Logout";
-// import { getCurrentUser } from "./actions/currentUser";
+import Login from "./Login";
+import Logout from "./Logout";
+import { getCurrentUser } from "./actions/currentUser";
 
 
-const Navbar = ({ logout }) => {
+const Navbar = ({ currentUser }) => {
  
     return (
        <div>
-
+          props.currentUser ? <Logout/> : <Login/>
        </div>
     )
 }
@@ -20,4 +20,4 @@ const mapStateToProps = ({ currentUser }) => {
     }
   }
 
-export default connect(null, { logout} )(Navbar)
+export default connect(mapStateToProps)(Navbar)
