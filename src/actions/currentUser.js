@@ -1,5 +1,5 @@
 import { resetSignupForm } from './signupForm'
-import { resetLoginForm } from './signupForm'
+import { resetLoginForm } from './loginForm'
 
 export const setCurrentUser = user => {
     return {
@@ -69,7 +69,7 @@ export const login = (credentials, history) => {
 
   export const logout = () => {
     return dispatch => {
-        dispatch(clearCurrentUSer())
+        dispatch(clearCurrentUser())
         return fetch("http://localhost:3001/api/v1/logout", {
             credentials: "include",
             method: "DELETE"     

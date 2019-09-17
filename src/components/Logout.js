@@ -2,13 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../actions/currentUser';
 
-const Logout = ({ logout }) => {
+const Logout = ({ logout, history }) => {
  
     return (
-        <form onSubmit={handleSubmit}>
-           <input type="submit" value="Log Out"/>
-           
-        </form>
+        <form onSubmit={(e) => {
+            e.preventDefault()
+            logout()
+            history.push('/')
+        }
+    }>
+        <input type="submit" value="Log Out"/>
+    </form>
     )
 }
 
