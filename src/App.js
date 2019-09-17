@@ -13,13 +13,18 @@ class App extends React.Component {
 
    }
 
-  render(){
-  return (
-    <div className="App">
-      Hello 
-    </div>
-  );
-}
+   render(){
+     return (
+        <div className="App">
+         Hello 
+       </div>
+     );
+   }
 }
 
-export default coonnect(null, { getCurrentUser })(App);
+const mapStateToProps = state => {
+  currentUser
+}
+
+
+export default coonnect(mapStateToProps, { getCurrentUser })(App);
