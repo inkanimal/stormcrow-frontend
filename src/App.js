@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from "./actions/currentUser";
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Signup from './components/Signup'
+import Login from './components/Login'
+import Logout from './components/Logout'
 import Navbar from './components/Navbar'
 
 class App extends React.Component {
@@ -18,6 +20,14 @@ class App extends React.Component {
      return (
         <div className="App">
           <Navbar/>
+         
+            <div>
+          <Route eaxact path="/login" component={ Login }/>
+          <Route eaxact path="/signup" component={ Signup }/>
+          </div>
+          
+
+          
          
          <Signup/>
        </div>
