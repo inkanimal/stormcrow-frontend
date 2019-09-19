@@ -1,6 +1,7 @@
-export const changeWeatherRoute = routeName => {
+export const changeWeatherRoute = route => {
+    window.history.pushState('', {}, route.routeName )
     return {
-        type: "CHANGING_ROUTE",
-        routeName
+      type: 'CHANGING_ROUTE',
+      route
     }
-}
+  }
