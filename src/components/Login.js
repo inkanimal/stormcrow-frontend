@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateLoginForm } from '../actions/loginForm';
 import { login } from '../actions/currentUser';
+import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import "./Login.css";
 
 const Login = ({loginFormData, updateLoginForm, login, history }) => {
  
@@ -21,12 +23,36 @@ const Login = ({loginFormData, updateLoginForm, login, history }) => {
 
 
     return (
+        <div className="Login">
         <form onSubmit={handleSubmit}>
-           <input placeholder="username" value={loginFormData.username} name="username" type="text" onChange={handleInputChange}/>
-           <input placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange}/>
-           <input type="submit" value="Login"/>
-           
+            <FormGroup controlId="username" bsSize="large">
+                <ControlLabel>Username</ControlLabel>
+                <FormControl
+                autoFocus
+                name="username"
+                type="text"
+                value={loginFormData.username} 
+                onChange={handleInputChange}/>
+            </FormGroup>
+            <FormGroup controlId="password" bsSize="large">
+                <ControlLabel>Password</ControlLabel>
+                <FormControl
+                autoFocus
+                name="password"
+                type="text"
+                value={loginFormData.password} 
+                onChange={handleInputChange}/>
+            </FormGroup>
+            <Button
+              block
+              bsSize="large"
+              type="submit"
+              value="Login" >
+            Log In
+          </Button>
+            
         </form>
+        </div>
     )
 }
 // this gives an argument to this component

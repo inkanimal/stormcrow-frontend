@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser } from "./actions/currentUser";
@@ -7,6 +7,9 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import Navbar from './components/Navbar'
+import Dashboard from "./containers/Dashboard";
+import Home from "./containers/Home";
+
 
 class App extends React.Component {
   
@@ -18,19 +21,17 @@ class App extends React.Component {
    render(){
      const { loggedIn } = this.props
      return (
-        <div className="App">
-          <Navbar/>
-         
-            <div>
-          <Route eaxact path="/login" component={ Login }/>
-          <Route eaxact path="/signup" component={ Signup }/>
-          </div>
-          
+      <div className="App">
+        <Navbar/>
+        <Switch>
+          <Route path="/dashboard" render={(props) => loggedIn ? <dashboard {...props}/>: null}/>
+          <Route path="/" exact component={Home} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/signup" render={({history})=><Signup history={history}/>}/> />
 
-          
-         
-         <Signup/>
-       </div>
+        </Switch>;
+    
+    </div>
      );
    }
 }

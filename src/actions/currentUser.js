@@ -31,7 +31,7 @@ export const login = (credentials, history) => {
             } else {
                 dispatch(setCurrentUser(resp.data))
                 dispatch(resetLoginForm())
-                history.push('/')
+                history.push('/dashboard')
 
             }
         })
@@ -59,7 +59,7 @@ export const login = (credentials, history) => {
             } else {
                 dispatch(setCurrentUser(resp.data))
                 dispatch(resetSignupForm())
-                history.push('/')
+                history.push('/dashboard')
 
             }
         })

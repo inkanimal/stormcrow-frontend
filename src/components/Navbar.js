@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import Logout from "./Logout";
+import { NavLink } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
+import { Link, withRouter } from "react-router-dom";
+import { Nav, NavItem } from "react-bootstrap";
+import "./Navbar.css";
 
 
 
-const Navbar = ({ currentUser }) => {
+
+const Navbar = ({ currentUser, loggedIn }) => {
  
     return (
-       <div classname="Navbar">
-          { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p><Logout/></> : null }
-       </div>
+        <div className="Navbar">
+          <div className="username">
+        <h4>{ loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.username}</p><Logout/></> : null}</h4>
+        </div>
+      </div>
     )
 }
 
