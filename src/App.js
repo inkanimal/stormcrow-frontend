@@ -9,58 +9,71 @@ import Login from './components/Login'
 import Navbar from './components/Navbar'
 import Dashboard from "./containers/Dashboard";
 import Home from "./containers/Home";
-import axios from 'axios';
-import ForecastCurrently from './components/forecasts/ForecastCurrently'
+
+import Forecast from './components/forecasts/Forecast'
 import ForecastDaily from './components/forecasts/ForecastDaily'
 import ForecastHourly from './components/forecasts/ForecastHourly'
 import ForecastNavbar from './components/forecasts/ForecastNavbar'
+import { changeWeatherRoute } from './actions/weatherRoute';
+import { stopFetchingData } from './actions/weatherFetch';
+import { fetchWeatherData } from './actions/weatherData';
+import logo from './logo.svg';
 
-const weatherAPI = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_API_KEY}`
+
 
 class App extends React.Component {
 
-  handleRouteChange = routeName => this.props.changeRoute({ routeName: routeName })
+  // componentWillMount() {
+  //   window.history.pushState('', {}, 'currently')
+  // } 
   
    componentDidMount(){
-    navigator.geolocation.getCurrentPosition(position => {
-      return axios(`${weatherAPI}${position.coords.latitude},${position.coords.longitude}`)
-      .then(response => response.json())
-      .then(data => this.setState({ 
-        weatherFetch: false,
-        weatherData: data,
-        weatherRoute: 'currently'
-      }))
-    }) 
+       this.props.fetchWeatherData()
        this.props.getCurrentUser()
 
    }
 
+   handleRouteChange = routeName => this.props.changeWeatherRoute({ routeName: routeName })
+
    render(){
      const { loggedIn } = this.props
+     const { weatherData, weatherFetch, routeName} = this.props
+     const forecast = weatherData[routeName]
+     const pathName = window.location.pathname.split("/")[1];
+
      return (
       <div className="App">
         <Navbar/>
+        <div className="App-weather"> 
+          {
+            weatherFetch ?
+            <img src={logo} className="App-logo" alt="logo" />
+            :
+            <div>
+              <ForecastNavbar changeWeatherRoute={this.handleRouteChange} />
+              {routeName === 'currently' && 
+                <div>
+                  
+                  <Forecast forecast={forecast} />
+                </div>
+              }
+              
+              {routeName === 'hourly' && 
+                <div>
+                  <h2>Hourly Forecast</h2>
+                  {forecast.data.map((forecast, index) => <Forecast key={index} forecast={forecast} />)}
+                </div>
+              }
+              {routeName === 'daily' && <ForecastDaily forecastData={forecast.data} />}
+            </div>
+          }
+        </div>
         <Switch>
           <Route path="/dashboard" render={(props) => loggedIn ? <dashboard {...props}/>: null}/>
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />
-          <Route path="/signup" render={({history})=><Signup history={history}/>}/> />
-          {weatherFetch ?
-          <p>Loading...</p>
-          :
-          <div>
-            <ForecastNavbar changeForecast={this.handleRouteChange} />
-            {weatherRoute === 'currently' &&
-              <ForecastCurrently forecast={forecast} />
-            }
-            {weatherRoute === 'hourly' &&
-              <ForecastHourly forecastData={forecast.data} />
-            }
-            {weatherRoute === 'daily' &&
-              <ForecastDaily forecastData={forecast.data} />
-            }
-          </div>
-        }
+          <Route path="/signup" render={({history})=><Signup history={history}/>}/> /> 
+         
         </Switch>;
     
     </div>
@@ -70,9 +83,12 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return ({
-    loggedIn: !!state.currentUser
+    loggedIn: !!state.currentUser,
+    weatherFetch: state.weatherFetch,
+    routeName: state.weatherRoute.routeName,
+    weatherData: state.weatherData
   })
 }
 
 
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, stopFetchingData, fetchWeatherData })(App);

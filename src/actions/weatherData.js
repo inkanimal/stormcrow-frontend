@@ -1,7 +1,8 @@
 import { stopFetchingData } from './weatherFetch';
 import axios from 'axios'
+import fetchJsonp from 'fetch-jsonp';
 
-const WeatherAPI = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_API_KEY}/`
+const weatherAPI = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}/`
 
 const receivedWeatherData = weatherData => {
   return {
@@ -15,9 +16,10 @@ export const fetchWeatherData = () => {
     return navigator.geolocation.getCurrentPosition(position => {
       const { latitude, longitude } = position.coords
       
-      axios(`${weatherAPI}${latitude},${longitude}`)
+      fetchJsonp(`${weatherAPI}${latitude},${longitude}`)
         .then(response => response.json())
         .then(weatherData => {
+            console.log(weatherData)
           dispatch(receivedWeatherData(weatherData))
           dispatch(stopFetchingData())
         })
