@@ -1,6 +1,8 @@
 export default (state = {}, action) => {
     switch(action.type) {
-        default:
-            return state;
+        case "RECEIVED_WEATHER_DATA":
+            return action.weatherData;
+           default:
+             return state;
     }
 };
