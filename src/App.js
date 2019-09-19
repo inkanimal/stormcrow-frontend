@@ -5,7 +5,7 @@ import { getCurrentUser } from "./actions/currentUser";
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Signup from './components/Signup'
 import Login from './components/Login'
-import Logout from './components/Logout'
+// import Logout from './components/Logout'
 import Navbar from './components/Navbar'
 import Dashboard from "./containers/Dashboard";
 import Home from "./containers/Home";
