@@ -7,4 +7,4 @@ const Navbar = ({ changeRoute }) =>
     <button className="fnav-button" onClick={() => changeRoute('daily')}>By Day</button>
   </div>;
 
-export default Navbar;
+export default ForecastNavbar;
