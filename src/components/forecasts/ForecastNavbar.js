@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Navbar = ({ changeForecast }) => 
+const Navbar = ({ changeRoute }) => 
   <div>
-    <button onClick={() => changeForecast('currently')}>Current</button>
-    <button onClick={() => changeForecast('hourly')}>By Hour</button>
-    <button onClick={() => changeForecast('daily')}>By Day</button>
+    <button className="fnav-button" onClick={() => changeRoute('currently')}>Current</button>
+    <button className="fnav-button" onClick={() => changeRoute('hourly')}>By Hour</button>
+    <button className="fnav-button" onClick={() => changeRoute('daily')}>By Day</button>
   </div>;
 
 export default Navbar;
