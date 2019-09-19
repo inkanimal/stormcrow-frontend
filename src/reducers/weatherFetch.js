@@ -1,6 +1,11 @@
-export default (state = {}, action) => {
+export default (state = true, action) => {
     switch(action.type) {
-        default:
-            return state;
+        case "STOP_FETCHING_DATA":
+            return false;
+        case "START_FETCHING_DATA":
+            return true;
+            default:
+                return state;
+
     }
 };
