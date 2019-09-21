@@ -4,7 +4,7 @@ import Logout from "./Logout";
 import { NavLink } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link, withRouter } from "react-router-dom";
-import { Nav, NavItem } from "react-bootstrap";
+import {  Nav, NavItem} from "react-bootstrap";
 import "./Navbar.css";
 
 
@@ -12,14 +12,26 @@ import "./Navbar.css";
 
 const Navbar = ({ currentUser, loggedIn }) => {
  
-    return (
-        <div className="Navbar">
-          <div className="username">
-        <h4>{ loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.username}</p><Logout/></> : null}</h4>
-        </div>
-      </div>
-    )
-}
+    return  loggedIn ? 
+      <Nav className="float-xs-right" navbar>
+        <NavItem className="navbar-text">
+          {currentUser.attributes.username}
+        </NavItem>
+        <NavItem>
+          <NavLink tag={Link} to="/logout">Logout</NavLink>
+        </NavItem>
+      </Nav> :
+         <Nav className="float-xs-right" navbar>
+         <NavItem>
+           <NavLink tag={Link} to="/login">Log in</NavLink>
+         </NavItem>
+       </Nav>
+   
+
+   
+};
+   
+ 
 
 const mapStateToProps = ({ currentUser }) => {
     return {

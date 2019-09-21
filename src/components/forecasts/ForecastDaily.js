@@ -1,11 +1,12 @@
 import React from 'react'
+import moment from 'moment'
 
 const ForecastDaily = ({ forecastData }) => {
   const renderForecast = forecastData.map((forecast, index) => {
     const { apparentTemperatureMax, apparentTemperatureMin, precipProbability, humidity, summary, temperatureMax, temperatureMin, time } = forecast
     return (
       <div key={index} style={{ border: 'solid 1px black', padding: '12px', margin: '10px' }}>
-        <h3>Time: {time}</h3>
+        <h3>{moment.unix(time).format('LL')}</h3>
         <h3>Status: {summary}</h3>
         <h4>HI: {temperatureMax}</h4>
         <h4>LOW: {temperatureMin}</h4>

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { getCurrentUser } from "./actions/currentUser";
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { getCurrentUser, logout } from "./actions/currentUser";
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import Signup from './components/Signup'
 import Login from './components/Login'
 // import Logout from './components/Logout'
@@ -39,43 +39,47 @@ class App extends React.Component {
      const { loggedIn } = this.props
      const { weatherData, weatherFetch, routeName} = this.props
      const forecast = weatherData[routeName]
-     const pathName = window.location.pathname.split("/")[1];
+    //  const pathName = window.location.pathname.split("/")[1];
 
      return (
       <div className="App">
-        <Navbar/>
+        <div className="App-header">
+          <h1>S T O R M C R O W</h1>
+        </div>
+        <div>
+          <Navbar bg="dark" expand="lg"/></div>
+          <Switch>
         <div className="App-weather"> 
           {
             weatherFetch ?
             <img src={logo} className="App-logo" alt="logo" />
             :
             <div>
-              <ForecastNavbar changeWeatherRoute={this.handleRouteChange} />
+              <ForecastNavbar bg="dark" expand="lg" changeWeatherRoute={this.handleRouteChange} />
               {routeName === 'currently' && 
-                <div>
-                  
+                <div> 
                   <Forecast forecast={forecast} />
                 </div>
               }
               
-              {routeName === 'hourly' && 
-                <div>
-                  <h2>Hourly Forecast</h2>
-                  {forecast.data.map((forecast, index) => <Forecast key={index} forecast={forecast} />)}
-                </div>
-              }
+              {routeName === 'hourly' && <ForecastHourly forecastData={forecast.data}/>}
+              
+              
               {routeName === 'daily' && <ForecastDaily forecastData={forecast.data} />}
             </div>
           }
         </div>
-        <Switch>
+       
           <Route path="/dashboard" render={(props) => loggedIn ? <dashboard {...props}/>: null}/>
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />
           <Route path="/signup" render={({history})=><Signup history={history}/>}/> /> 
-         
-        </Switch>;
-    
+          <Route path="/logout" render={propd => {
+            this.props.logout()
+            return <Redirect to = '/' />
+          }} />
+        </Switch>
+        
     </div>
      );
    }
@@ -91,4 +95,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, stopFetchingData, fetchWeatherData })(App);
+export default connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, stopFetchingData, fetchWeatherData, logout })(App);

@@ -6,13 +6,13 @@ import { withRouter } from 'react-router-dom'
 const Logout = ({ logout, history }) => {
  
     return (
-        <form onSubmit={(e) => {
+        <form  onSubmit={(e) => {
             e.preventDefault()
             logout()
             history.push('/')
         }
     }>
-        <input type="submit" value="Log Out"/>
+        <input className="logout" type="submit" value="Log Out"/>
     </form>
     )
 }
