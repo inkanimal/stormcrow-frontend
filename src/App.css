@@ -23,11 +23,12 @@
   height: 80px;
 }
 
+/*/////////////////Forecast Navbar /////////////////////*/
 
 .fnav-button {
   border: 1px solid #2b2b2b;
-  color: white;
-  background: #adadad;
+  color: #4d4d4d;
+  background: #000000;
   margin: 12px;
   padding: 10px;
   text-align: center;

@@ -4,7 +4,7 @@ import Logout from "./Logout";
 import { NavLink } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link, withRouter } from "react-router-dom";
-import {  Nav, NavItem} from "react-bootstrap";
+import {  Nav, NavItem, Form, FormControl, Button} from "react-bootstrap";
 import "./Navbar.css";
 
 
@@ -13,7 +13,8 @@ import "./Navbar.css";
 const Navbar = ({ currentUser, loggedIn }) => {
  
     return  loggedIn ? 
-      <Nav className="float-xs-right" navbar>
+    
+      <Nav className="navbar-user" navbar>
         <NavItem className="navbar-text">
           {currentUser.attributes.username}
         </NavItem>
@@ -21,11 +22,16 @@ const Navbar = ({ currentUser, loggedIn }) => {
           <NavLink tag={Link} to="/logout">Logout</NavLink>
         </NavItem>
       </Nav> :
-         <Nav className="float-xs-right" navbar>
+         <Nav className="navbar-log" navbar>
          <NavItem>
            <NavLink tag={Link} to="/login">Log in</NavLink>
          </NavItem>
+         <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="city search">Search</Button>
+    </Form>
        </Nav>
+       
    
 
    
