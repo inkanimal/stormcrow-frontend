@@ -1,0 +1,26 @@
+.currentTemp {
+    font-size: 65px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    color: #ffffff
+}
+
+.date {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: #ffffff
+}
+
+.hilo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.summary {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+
+}
