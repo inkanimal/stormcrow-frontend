@@ -23,8 +23,8 @@ const Forecast = ({ weatherData: { currently: {
   } 
 }) =>
 
-  <div className="Today">
-    <div style={{  padding: '12px', margin: '10px' }}>
+  <div className="Today" class="container">
+    
     <div className="date">
     {moment.unix(time).format('dddd, MMMM DD').toUpperCase()}
     </div>
@@ -32,16 +32,20 @@ const Forecast = ({ weatherData: { currently: {
            {Math.round(temperature)}°
            </div>
            <div className="hilo">
-           {Math.round(data[0].temperatureMax)}°/{Math.round(data[0].temperatureMin)}°
+             <ul id="hilo">
+           <li>{Math.round(data[0].temperatureMax)}°/ {Math.round(data[0].temperatureMin)}°</li>  <li><p className="feels">Feels Like:</p> </li> <li>{Math.round(apparentTemperature)}°</li></ul> 
          </div> 
     
     
-       <div className="summary">
-      {summary}
+       <div className="cc">
+         {summary}
+      </div>
+      <div className="summary">
+        Today - {data[0].summary}
       </div>
       
       
-      <h4>Feels Like: {Math.round(apparentTemperature)}°</h4>
+      
       <h4>Chance of Rain: {Math.round(precipProbability * 100)}%</h4>
       <h4>Humidity: {Math.round(humidity * 100)}%</h4>
       <h4>Dew Point: {Math.round(data[0].dewPoint)}°</h4>
@@ -52,7 +56,7 @@ const Forecast = ({ weatherData: { currently: {
       <p>Visibility: {(visibility).toFixed(2)} Miles</p>
       <p>Cloud Cover: {(cloudCover * 100)}%</p>
     </div>
-  </div>
+  
 
 
 function degToCompass(num) {

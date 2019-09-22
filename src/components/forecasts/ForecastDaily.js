@@ -6,14 +6,15 @@ const ForecastDaily = ({ forecastData }) => {
     const { apparentTemperatureMax, apparentTemperatureMin, precipProbability, humidity, summary, temperatureMax, temperatureMin, time } = forecast
     return (
       <div key={index} style={{ border: 'solid 1px black', padding: '12px', margin: '10px' }}>
-        <h3>{moment.unix(time).format('LL')}</h3>
+        <div className="date">
+            {moment.unix(time).format('dddd, MMMM DD').toUpperCase()}
+        </div>
         <h3>Status: {summary}</h3>
-        <h4>HI: {temperatureMax}</h4>
-        <h4>LOW: {temperatureMin}</h4>
-        <h4>Feels Like HI: {apparentTemperatureMax}</h4>
-        <h4>Feels Like LOW: {apparentTemperatureMin}</h4>
-        <h4>Chance of Rain: {precipProbability}%</h4>
-        <h4>Humidity: {humidity}%</h4>
+        <h4>HI: {Math.round(temperatureMax)}°</h4>
+        <h4>LOW: {Math.round(temperatureMin)}°</h4>
+       
+        <h4>Chance of Rain: {Math.round(precipProbability * 100)}%</h4>
+        <h4>Humidity: {Math.round(humidity * 100)}%</h4>
       </div>
     )
   })

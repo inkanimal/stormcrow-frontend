@@ -1,3 +1,6 @@
+
+
+
 .currentTemp {
     font-size: 65px;
     font-family: 'Montserrat', sans-serif;
@@ -8,19 +11,44 @@
 .date {
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    color: #ffffff
+    font-weight: 600;
+    color: #afafaf
 }
 
 .hilo {
     font-family: 'Montserrat', sans-serif;
+    font-weight: 450;
+    font-size: 22px;
+    
+    
+}
+
+.cc {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    font-size: 22px;
+
+}
+
+.feels {
+    font-family: 'Lato', sans-serif;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
+}
+
+#hilo {
+    list-style: none;
+    white-space: nowrap;
+    width: 100%;
+}
+
+#hilo > li {
+    display: inline-block;
 }
 
 .summary {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    font-size: 24px;
-
+    color: #afafaf;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
 }
