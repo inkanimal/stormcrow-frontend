@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateSignupForm } from '../actions/signupForm';
 import { signup } from '../actions/currentUser';
+import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import "./Signup.css";
 
 const Signup = ({signupFormData, updateSignupForm, signup, history }) => {
  
@@ -21,13 +23,46 @@ const Signup = ({signupFormData, updateSignupForm, signup, history }) => {
 
 
     return (
+        <div className="signup">
         <form onSubmit={handleSubmit}>
-           <input placeholder="username" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange}/>
-           <input placeholder="email" value={signupFormData.email} name="email" type="text" onChange={handleUserInfoInputChange}/>
-           <input placeholder="password" value={signupFormData.password} name="password" type="text" onChange={handleUserInfoInputChange}/>
-           <input type="submit" value="Sign Up"/>
-           
+            <FormGroup controlId="username" bsSize="large">
+                <ControlLabel>Username</ControlLabel>
+                <FormControl
+                autoFocus
+                name="username"
+                type="text"
+                value={signupFormData.username} 
+                onChange={handleUserInfoInputChange}/>
+            </FormGroup>
+            <FormGroup controlId="email" bsSize="large">
+                <ControlLabel>Email</ControlLabel>
+                <FormControl
+                autoFocus
+                name="email"
+                type="text"
+                value={signupFormData.email} 
+                onChange={handleUserInfoInputChange}/>
+            </FormGroup>
+            <FormGroup controlId="password" bsSize="large">
+                <ControlLabel>Password</ControlLabel>
+                <FormControl
+                autoFocus
+                name="password"
+                type="text"
+                value={signupFormData.password} 
+                onChange={handleUserInfoInputChange}/>
+            </FormGroup>
+            <Button
+              block
+              bsSize="large"
+              type="submit"
+              value="Signup" >
+            Sign Up
+          </Button>
+            
         </form>
+        </div>
+       
     )
 }
 // this gives an argument to this component

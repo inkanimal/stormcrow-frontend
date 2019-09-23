@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { connect } from 'react-redux';
 
-class SearchWeather extends Component {
+class SearchCity extends Component {
     state = {
         latitude: null,
         longitude: null,
@@ -29,4 +29,4 @@ handleChange = (e) => {
 //       })
 //   }
 
-  export default connect(null, { })(SearchWeather)
+  export default connect(null, { })(SearchCity)

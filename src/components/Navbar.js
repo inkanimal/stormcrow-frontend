@@ -16,19 +16,22 @@ const Navbar = ({ currentUser, loggedIn }) => {
   
       <Nav className="navbar-user" >
         <Form inline className="city-search">
-          <FormControl type="text" placeholder="Enter City" className="search-form" />
-            <Button className="button" variant="city search">Search</Button>
+          <FormControl className="search-form" type="text" placeholder="Enter City"  />
+            <Button className="button" variant="city search">SEARCH</Button>
        </Form>
         <NavItem className="navbar-text">
           {currentUser.attributes.username}
         </NavItem>
         <NavItem className="nav-log">
-          <Link  to="/logout">Logout</Link>
+          <Link  to="/logout">LOG OUT</Link>
         </NavItem>
       </Nav> :
          <Nav className="navbar-log" navbar>
+            <NavItem>
+           <Link to="/signup">SIGN UP</Link>
+         </NavItem>
          <NavItem>
-           <Link to="/login">Log in</Link>
+           <Link to="/login">LOG IN</Link>
          </NavItem>
     
        </Nav>

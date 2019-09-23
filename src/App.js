@@ -7,7 +7,7 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 // import Logout from './components/Logout'
 import Navbar from './components/Navbar'
-import Dashboard from "./containers/Dashboard";
+
 import Home from "./containers/Home";
 
 import Forecast from './components/forecasts/Forecast'
@@ -18,7 +18,7 @@ import { changeWeatherRoute } from './actions/weatherRoute';
 import { stopFetchingData } from './actions/weatherFetch';
 import { fetchWeatherData } from './actions/weatherData';
 import { stopFetchingLocation } from './actions/locationFetch';
-import { fetchLocationName } from './actions/locationName';
+// import { fetchLocationName } from './actions/locationName';
 import logo from './logo.svg';
 
 
@@ -32,7 +32,7 @@ class App extends React.Component {
    componentDidMount(){
        this.props.fetchWeatherData()
        this.props.getCurrentUser()
-       this.props.fetchLocationName()
+      //  this.props.fetchLocationName()
 
    }
 
@@ -56,7 +56,7 @@ class App extends React.Component {
           </div>
           
           <Switch>
-          <Route path="/dashboard" render={(props) => loggedIn ? <dashboard {...props}/>: null}/>
+          
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />
           <Route path="/signup" render={({history})=><Signup history={history}/>}/> /> 
@@ -100,4 +100,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, stopFetchingData, fetchWeatherData, logout, stopFetchingLocation, fetchLocationName })(App);
+export default connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, stopFetchingData, fetchWeatherData, logout, stopFetchingLocation })(App);

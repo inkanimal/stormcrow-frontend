@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 export default class Home extends Component {
   render() {
@@ -10,9 +10,7 @@ export default class Home extends Component {
             <h4>W e l c o m e</h4>   <h5>t o</h5>
           <h1>S T O R M C R O W</h1>
          
-          <div className="link">
-          <Link to="/signup">Sign Up</Link> or <Link to="/login">Log In</Link>
-          </div>
+         
         </div>
       </div>
     );
