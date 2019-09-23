@@ -13,29 +13,28 @@ import "./Navbar.css";
 const Navbar = ({ currentUser, loggedIn }) => {
  
     return  loggedIn ? 
-    
-      <Nav className="navbar-user" navbar>
+  
+      <Nav className="navbar-user" >
+        <Form inline className="city-search">
+          <FormControl type="text" placeholder="Enter City" className="search-form" />
+            <Button className="button" variant="city search">Search</Button>
+       </Form>
         <NavItem className="navbar-text">
           {currentUser.attributes.username}
         </NavItem>
-        <NavItem>
-          <NavLink tag={Link} to="/logout">Logout</NavLink>
+        <NavItem className="nav-log">
+          <Link  to="/logout">Logout</Link>
         </NavItem>
       </Nav> :
          <Nav className="navbar-log" navbar>
          <NavItem>
-           <NavLink tag={Link} to="/login">Log in</NavLink>
+           <Link to="/login">Log in</Link>
          </NavItem>
-         <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="city search">Search</Button>
-    </Form>
+    
        </Nav>
-       
-   
-
-   
-};
+      
+      };
+      
    
  
 

@@ -1,5 +1,9 @@
 
-
+.today {
+    padding: 25px;
+    /* margin: 25px; */
+    margin-top: 40px;
+}
 
 .currentTemp {
     font-size: 65px;
@@ -19,8 +23,7 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 450;
     font-size: 22px;
-    
-    
+     
 }
 
 .cc {
@@ -31,19 +34,22 @@
 }
 
 .feels {
-    font-family: 'Lato', sans-serif;
-    font-weight: 600;
-    font-size: 18px;
+    font-size: 14px;
+    display: inline;
 }
 
-#hilo {
-    list-style: none;
-    white-space: nowrap;
-    width: 100%;
+.feels-con {
+    display: inline;
+
 }
 
-#hilo > li {
-    display: inline-block;
+.feels-temp {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 450;
+    font-size: 22px;
+    display: inline;
+    padding-left: 8px;
+
 }
 
 .summary {
@@ -51,4 +57,22 @@
     font-family: 'Lato', sans-serif;
     font-weight: 500;
     font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.container {
+    border-bottom-style: solid; 
+    border-bottom-width: 1px;
+    border-bottom-color: #4d4d4d7e;
+    
+    padding: 5px;
+}
+
+.container-two {
+    border-bottom-style: solid; 
+    border-bottom-width: 1px;
+    border-bottom-color: #4d4d4d7e;
+    padding: 5px;
+   
+
 }

@@ -9,7 +9,7 @@ const ForecastDaily = ({ forecastData }) => {
         <div className="date">
             {moment.unix(time).format('dddd, MMMM DD').toUpperCase()}
         </div>
-        <h3>Status: {summary}</h3>
+        <h3> {summary}</h3>
         <h4>HI: {Math.round(temperatureMax)}°</h4>
         <h4>LOW: {Math.round(temperatureMin)}°</h4>
        

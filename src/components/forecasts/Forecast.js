@@ -23,8 +23,8 @@ const Forecast = ({ weatherData: { currently: {
   } 
 }) =>
 
-  <div className="Today" class="container">
-    
+  <div className="today" >
+    <div className="container">
     <div className="date">
     {moment.unix(time).format('dddd, MMMM DD').toUpperCase()}
     </div>
@@ -32,8 +32,10 @@ const Forecast = ({ weatherData: { currently: {
            {Math.round(temperature)}°
            </div>
            <div className="hilo">
-             <ul id="hilo">
-           <li>{Math.round(data[0].temperatureMax)}°/ {Math.round(data[0].temperatureMin)}°</li>  <li><p className="feels">Feels Like:</p> </li> <li>{Math.round(apparentTemperature)}°</li></ul> 
+            {Math.round(data[0].temperatureMax)}°/ {Math.round(data[0].temperatureMin)}°
+            </div>
+            <div className="feels-con">
+             <div className="feels">Feels Like</div>  <div className="feels-temp">{Math.round(apparentTemperature)}°</div>
          </div> 
     
     
@@ -43,9 +45,9 @@ const Forecast = ({ weatherData: { currently: {
       <div className="summary">
         Today - {data[0].summary}
       </div>
+      </div>
       
-      
-      
+      <div className="container-two">
       <h4>Chance of Rain: {Math.round(precipProbability * 100)}%</h4>
       <h4>Humidity: {Math.round(humidity * 100)}%</h4>
       <h4>Dew Point: {Math.round(data[0].dewPoint)}°</h4>
@@ -54,7 +56,8 @@ const Forecast = ({ weatherData: { currently: {
       <p>Wind: {degToCompass(windBearing)} @ {Math.round(windSpeed)} mph | Gusting to: {Math.round(windGust)} mph</p>
       <p>Pressure: {(pressure * 0.0295301).toFixed(2)} inHg</p>
       <p>Visibility: {(visibility).toFixed(2)} Miles</p>
-      <p>Cloud Cover: {(cloudCover * 100)}%</p>
+      <p>Cloud Cover: {Math.round(cloudCover * 100)}%</p>
+      </div>
     </div>
   
 

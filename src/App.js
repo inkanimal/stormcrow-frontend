@@ -56,6 +56,14 @@ class App extends React.Component {
           </div>
           
           <Switch>
+          <Route path="/dashboard" render={(props) => loggedIn ? <dashboard {...props}/>: null}/>
+          <Route path="/" exact component={Home} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/signup" render={({history})=><Signup history={history}/>}/> /> 
+          <Route path="/logout" render={props => {
+            this.props.logout()
+            return <Redirect to = '/' />
+          }} />
             <div className="forecast">
           <Route path="/forecast" render={(props) => weatherFetch ?  <img src={logo} className="App-logo" alt="logo" />
                   :
@@ -72,14 +80,7 @@ class App extends React.Component {
                   </div>
                 }/>
               </div>
-          <Route path="/dashboard" render={(props) => loggedIn ? <dashboard {...props}/>: null}/>
-          <Route path="/" exact component={Home} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/signup" render={({history})=><Signup history={history}/>}/> /> 
-          <Route path="/logout" render={propd => {
-            this.props.logout()
-            return <Redirect to = '/' />
-          }} />
+         
         </Switch>
         
     </div>

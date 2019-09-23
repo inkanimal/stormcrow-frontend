@@ -1,19 +1,70 @@
-.Navbar {
+.navbar-user {
+    display: flex;
     background-color: #000000;
-    text-align: center;
+    border-bottom-style: solid; 
+    border-bottom-width: 1px;
+    border-bottom-color: #4d4d4d7e;
     
-    max-height: 30px;
-
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    max-height: 45px;
+   
 }
 
-.Navbar-username {
+.navbar-text {
   font-size: 14px;
   font-family: 'lato', sans-serif;
   font-weight: 600;
+  align-items: center;
+  justify-content: space-around;
     
 }
 
+.navbar-log {
+  display: flex;
+  background-color: #000000;
+  align-items: center;
+  justify-content: space-around;
   
+  
+  max-height: 30px;
+
+}
+
+.search {
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+}
+
+.button {
+  border: 1px solid #2b2b2b;
+  color: #4d4d4d;
+  background: #000000;
+  margin: 12px;
+  padding: 8px 15px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.search {
+  float: left;
+}
+
+.nav-log {
+  font-size: 14px;
+  font-family: 'lato', sans-serif;
+  font-weight: 600;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.search-form {
+  background-color: #4d4d4d;
+  border-color: #000000;
+}
  
 
 
