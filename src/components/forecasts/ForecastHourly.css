@@ -1,3 +1,26 @@
+
+.hourly-title {
+    padding-left: 125px;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+}
+
+.block {
+    width: 25rem;
+    height: auto;
+    margin: 1rem;
+    border-style: solid; 
+    border-color: #4d4d4d;
+    display: inline-block;
+    border-width: 1px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: linear-gradient(#000000, #4d4d4d);
+    
+}
+
 .temp {
     font-size: 40px;
     font-family: 'Montserrat', sans-serif;
@@ -7,20 +30,48 @@
 
 .time {
     font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
 }
 
 
 
 .feels {
     font-family: 'Lato', sans-serif;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: 500;
+    font-size: 16px;
+    display: inline;
 }
 
-.feelslike {
+.feels-hourly {
     font-family: 'Montserrat', sans-serif;
     font-weight: 450;
-    font-size: 22px;
-    
+    font-size: 20px;  
+    display: inline; 
+}
+
+.day {
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    color: #4d4d4d
+}
+
+.summary-hourly {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.hourly-data {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
     
 }
+
+.feels-con {
+    display: inline;
+}
+

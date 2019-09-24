@@ -1,6 +1,11 @@
 import React from 'react'
 import moment from 'moment'
 import './Forecast.css'
+// import ForecastDaily from './components/forecasts/ForecastDaily'
+import ForecastHourly from './ForecastHourly'
+// import ForecastNavbar from './components/forecasts/ForecastNavbar'
+import { Route } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 
 const Forecast = ({ weatherData: { currently: {
@@ -22,7 +27,7 @@ const Forecast = ({ weatherData: { currently: {
        }, daily: { data }
   } 
 }) =>
-
+  <span className="block-today border">
   <div className="today" >
     <div className="container">
     <div className="date">
@@ -58,8 +63,13 @@ const Forecast = ({ weatherData: { currently: {
       <p>Visibility: {(visibility).toFixed(2)} Miles</p>
       <p>Cloud Cover: {Math.round(cloudCover * 100)}%</p>
       </div>
+       
+       <div>
+         <Link to={"/forecasthourly"}>Hourly</Link>
+       </div>
+      <Route path={"/forecast/forecasthourly"} exact component={ForecastHourly}/>
     </div>
-  
+    </span>
 
 
 function degToCompass(num) {

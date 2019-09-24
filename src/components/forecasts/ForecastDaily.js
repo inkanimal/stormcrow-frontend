@@ -27,7 +27,7 @@ const ForecastDaily = ({ forecastData }) => {
   })
 
   return (
-    <div>
+    <div className="daily">
       <h2>Daily Weather</h2>
       {renderForecast}
     </div>

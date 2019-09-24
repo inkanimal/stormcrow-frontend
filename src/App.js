@@ -45,43 +45,35 @@ class App extends React.Component {
     //  const pathName = window.location.pathname.split("/")[1];
 
      return (
-      <div className="App">
+      <div className="App" id="app">
         <div className="App-header">
           <h1>S T O R M C R O W</h1>
         </div>
         
         <div>
-        
           <Navbar bg="dark" expand="lg"/>
-          </div>
-          
+       </div>
           <Switch>
-          
-          <Route path="/" exact component={Home} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/signup" render={({history})=><Signup history={history}/>}/> /> 
-          <Route path="/logout" render={props => {
-            this.props.logout()
-            return <Redirect to = '/' />
-          }} />
-            <div className="forecast">
-          <Route path="/forecast" render={(props) => weatherFetch ?  <img src={logo} className="App-logo" alt="logo" />
+           <Route path="/" exact component={Home} />
+           <Route path="/login" exact component={Login} />
+           <Route path="/signup" render={({history})=><Signup history={history}/>}/> /> 
+           <Route path="/logout" render={props => {
+              this.props.logout()
+               return <Redirect to = '/' />
+              }} />
+
+           <div className="forecast">
+             <Route path="/forecast" render={(props) => weatherFetch ?  <img src={logo} className="App-logo" alt="logo" />
                   :
                   <div>
                     <Forecast weatherData={weatherData}/>
-                    
-                    <ForecastNavbar bg="dark" expand="lg" changeWeatherRoute={this.handleRouteChange} />
-                    
-                    
-                    {routeName === 'hourly' && <ForecastHourly forecastData={forecast.data}/>}
-                    
-                    
-                    {routeName === 'daily' && <ForecastDaily forecastData={forecast.data} />}
+                      <ForecastNavbar bg="dark" expand="lg" changeWeatherRoute={this.handleRouteChange} />
+                        {routeName === 'hourly' && <ForecastHourly forecastData={forecast.data}/>}
+                        {routeName === 'daily' && <ForecastDaily forecastData={forecast.data} />}
                   </div>
                 }/>
               </div>
-         
-        </Switch>
+          </Switch>
         
     </div>
      );

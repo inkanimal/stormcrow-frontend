@@ -31,14 +31,6 @@
     
 }
 
-.navbar-log {
-  display: flex;
-  background-color: #000000;
-  align-items: center;
-  justify-content: space-around;
-  max-height: 30px;
-}
-
 .search {
   align-items: center;
   justify-content: space-around;

@@ -31,6 +31,9 @@ const Navbar = ({ currentUser, loggedIn }) => {
            <Link to="/signup">SIGN UP</Link>
          </NavItem>
          <NavItem>
+           <Link to="/">HOME</Link>
+         </NavItem>
+         <NavItem>
            <Link to="/login">LOG IN</Link>
          </NavItem>
     

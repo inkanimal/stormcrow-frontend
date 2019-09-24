@@ -1,33 +1,51 @@
 import React from 'react'
 import moment from 'moment'
 import './ForecastHourly.css'
+import { Card, CardColumns } from "reactstrap";
 
 const ForecastHourly = ({ forecastData }) => {
   const renderForecast = forecastData.map((forecast, index) => {
     const { apparentTemperature, precipProbability, humidity, summary, temperature, time } = forecast
     return (
-      <div key={index} style={{ border: 'solid 1px black', padding: '12px', margin: '10px' }}>
+    
+       
+      <span className="block border">
+      <div key={index} className="hourly">
+         
         <div className="time">
-        <h3>{moment.unix(time).format('HH:mm')}</h3>
+        {moment.unix(time).format('HH:mm')}
         </div>
+
+        <div className="day">
+        {moment.unix(time).format('dddd').toUpperCase()}
+        </div>
+
         <div className="temp">
            {Math.round(temperature)}°
         </div>
-        <div className="feelslike" id="feelslike">
-             
-        <p className="feels">Feels Like: {Math.round(apparentTemperature)}° </p>
+
+        <div className="feels-con" id="feelslike">     
+        <div className="feels">Feels Like</div> <div className='feels-hourly'>{Math.round(apparentTemperature)}° </div>
        </div>
-        <h3>{summary}</h3>
+
+       <div className="summary-hourly">
+        {summary}
+        </div>
         
-        <h4>Feels Like: {Math.round(apparentTemperature)}°</h4>
-        <h4>Chance of Precipitation: {precipProbability * 100}%</h4>
-        <h4>Humidity: {humidity * 100}%</h4>
+        <div className="hourly-data">
+        Chance of Precipitation: {precipProbability * 100}%
+        Humidity: {Math.round(humidity * 100)}%
+        </div>
+
       </div>
+      </span>
+      
+     
     )
   })
 
   return (
-    <div>
+    <div className="hourly-title">
       <h2>Hourly Weather</h2>
       {renderForecast}
     </div>
