@@ -1,12 +1,12 @@
 export const updateSearchCityForm = formData => {
     return {
-        type: "UPDATE_SEARCHCITY_FORM",
+        type: "UPDATE_SEARCH_CITY_FORM",
         formData
     }
 }
 
 export const resetSearchCityForm = () => {
     return {
-      type: "RESET_SEARCHCITY_FORM"
+      type: "RESET_SEARCH_CITY_FORM"
     }
   }
