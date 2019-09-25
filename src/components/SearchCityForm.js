@@ -1,5 +1,12 @@
 import React from 'react';
 
+
+handleChange = (e) => {
+  if (e.target.name === "city") {       // sets city as a string
+    this.setState({ [e.target.name]: e.target.value })
+  }
+}
+
 const SearchCityForm = (props) => {
     return (
       <div className="search-city-form" >
