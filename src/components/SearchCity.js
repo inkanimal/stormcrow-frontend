@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { updateSearchCityForm } from '../actions/searchCityForm;'
+import { searchCity} from '../actions/searchCity';
 
 
 handleChange = (e) => {
@@ -7,7 +10,7 @@ handleChange = (e) => {
   }
 }
 
-const SearchCityForm = (props) => {
+const SearchCity = (props) => {
     return (
       <div className="search-city-form" >
         <form onSubmit={ props.getCoordinates }>
@@ -23,4 +26,4 @@ const SearchCityForm = (props) => {
   )
 }
 
-export default SearchCityForm;
+export default SearchCity;

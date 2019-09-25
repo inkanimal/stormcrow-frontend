@@ -25,7 +25,7 @@ const Forecast = ({ weatherData: { currently: {
     visibility,
     uvIndex 
        }, daily: { data }
-  } 
+  }, locationName: { locationName }
 }) =>
   <span className="block-today border">
   <div className="today" >
@@ -42,6 +42,10 @@ const Forecast = ({ weatherData: { currently: {
             <div className="feels-con">
              <div className="feels">Feels Like</div>  <div className="feels-temp">{Math.round(apparentTemperature)}°</div>
          </div> 
+
+         <div className="location">
+           {loactionName}
+         </div>
     
     
        <div className="cc">

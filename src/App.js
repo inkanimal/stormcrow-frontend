@@ -18,7 +18,7 @@ import { changeWeatherRoute } from './actions/weatherRoute';
 import { stopFetchingData } from './actions/weatherFetch';
 import { fetchWeatherData } from './actions/weatherData';
 import { stopFetchingLocation } from './actions/locationFetch';
-// import { fetchLocationName } from './actions/locationName';
+import { fetchLocationName } from './actions/locationName';
 import logo from './logo.svg';
 
 
@@ -32,7 +32,7 @@ class App extends React.Component {
    componentDidMount(){
        this.props.fetchWeatherData()
        this.props.getCurrentUser()
-      //  this.props.fetchLocationName()
+       this.props.fetchLocationName()
 
    }
 
@@ -66,7 +66,7 @@ class App extends React.Component {
              <Route path="/forecast" render={(props) => weatherFetch ?  <img src={logo} className="App-logo" alt="logo" />
                   :
                   <div>
-                    <Forecast weatherData={weatherData}/>
+                    <Forecast weatherData={weatherData} locationName={locationName}/>
                       <ForecastNavbar bg="dark" expand="lg" changeWeatherRoute={this.handleRouteChange} />
                         {routeName === 'hourly' && <ForecastHourly forecastData={forecast.data}/>}
                         {routeName === 'daily' && <ForecastDaily forecastData={forecast.data} />}
@@ -92,4 +92,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, stopFetchingData, fetchWeatherData, logout, stopFetchingLocation })(App);
+export default connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, stopFetchingData, fetchWeatherData, logout, stopFetchingLocation, fetchLocationName,  })(App);

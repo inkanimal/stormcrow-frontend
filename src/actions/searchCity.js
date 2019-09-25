@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { connect } from 'react-redux';
+import { resetSearchCityForm } from './searchCityForm'
 
-class SearchCity extends Component {
-    state = {
-        latitude: null,
-        longitude: null,
-        city: ""
-    }
-}
+
 
 handleChange = (e) => {
     if (e.target.name === "city") {       // sets city as a string
@@ -29,4 +24,4 @@ handleChange = (e) => {
 //       })
 //   }
 
-  export default connect(null, { })(SearchCity)
+  export default SearchCity
