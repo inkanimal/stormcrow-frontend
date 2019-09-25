@@ -47,7 +47,7 @@ const ForecastHourly = ({ forecastData }) => {
   return (
     <div className="hourly-title">
       <h2>Hourly Weather</h2>
-      {renderForecast}
+      <div className="render">{renderForecast}</div>
     </div>
   )
 }

@@ -24,7 +24,7 @@ handleChange = (e) => {
 //           longitude: resp.data.features[0].geometry.coordinates[0],
 //           latitude: resp.data.features[0].geometry.coordinates[1]
 //         })
-//         //calls fetchHikes to show response
+//        
 //         this.props.fetchweatherData(this.state.latitude, this.state.longitude)
 //       })
 //   }

@@ -1,8 +1,15 @@
 .Home {
   height: 100%;
-  background: auto;
+  background-image: url("https://d.newsweek.com/en/full/1517575/lightning.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    
+    
+  }
 
-}
+
 
 .Home .lander {
     height: 100%;
@@ -15,7 +22,7 @@
     font-size: 65px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
-    color: #4d4d4d
+    /* color: #4d4d4d */
   }
   
   .Home .lander p {

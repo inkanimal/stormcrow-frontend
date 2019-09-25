@@ -57,7 +57,7 @@ const Forecast = ({ weatherData: { currently: {
       <h4>Humidity: {Math.round(humidity * 100)}%</h4>
       <h4>Dew Point: {Math.round(data[0].dewPoint)}°</h4>
       <p>Sunrise: {moment.unix(data[0].sunriseTime).format('HH:mm')}</p>
-      <p>Sunrise: {moment.unix(data[0].sunsetTime).format('HH:mm')}</p>
+      <p>Sunset: {moment.unix(data[0].sunsetTime).format('HH:mm')}</p>
       <p>Wind: {degToCompass(windBearing)} @ {Math.round(windSpeed)} mph | Gusting to: {Math.round(windGust)} mph</p>
       <p>Pressure: {(pressure * 0.0295301).toFixed(2)} inHg</p>
       <p>Visibility: {(visibility).toFixed(2)} Miles</p>

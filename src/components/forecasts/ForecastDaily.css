@@ -1,6 +1,42 @@
-.daily {
+.daily-title {
     padding-left: 125px;
     font-size: 40px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
+}
+
+.block-daily {
+    width: 375px;
+    height: 375px;
+    margin: 1rem;
+    border-style: solid; 
+    border-color: #4d4d4d;
+    display: inline-block;
+    border-width: 1px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    background: linear-gradient(#000000, #4d4d4d);
+}
+
+.hilo-daily {
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    padding-top: 10px;
+}
+
+.summary-daily {
+font-family: 'Lato', sans-serif;
+font-weight: 600;
+font-size: 20px;
+padding-bottom: 20px;
+padding-top: 5px;
+}
+
+.daily-data {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
 }
