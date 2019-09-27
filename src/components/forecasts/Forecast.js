@@ -8,25 +8,23 @@ import { Route } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
 
-const Forecast = ({ weatherData: { currently: {
-    apparentTemperature, 
-    precipProbability, 
-    humidity,
-    summary, 
-    temperature, 
-    time,
-    windSpeed,
-    windGust,
-    windBearing,
-    cloudCover,
-    pressure,
-    nearestStormBearing,
-    nearestStormDistance,
-    visibility,
-    uvIndex 
-       }, daily: { data }
-  }, locationName: { locationName }
-}) =>
+const Forecast = ({ weatherData: { 
+                        currently: { apparentTemperature, 
+                                     precipProbability, 
+                                     humidity,
+                                     summary, 
+                                     temperature, 
+                                     time,
+                                     windSpeed,
+                                     windGust,
+                                     windBearing,
+                                     cloudCover,
+                                     pressure,
+                                     nearestStormBearing,
+                                     nearestStormDistance,
+                                     visibility,
+                                     uvIndex}, 
+                             daily: { data } } }) =>
   <span className="block-today border">
   <div className="today" >
     <div className="container">
@@ -44,7 +42,7 @@ const Forecast = ({ weatherData: { currently: {
          </div> 
 
          <div className="location">
-           {loactionName}
+           {/* { results[5].address_components[0].long_name } */}
          </div>
     
     

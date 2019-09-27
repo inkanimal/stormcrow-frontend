@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import Logout from "./Logout";
-import { NavLink } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
-import { Link, withRouter } from "react-router-dom";
+// import Logout from "./Logout";
+// import { NavLink } from "react-router-dom";
+// import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 import {  Nav, NavItem, Form, FormControl, Button} from "react-bootstrap";
 import "./Navbar.css";
 

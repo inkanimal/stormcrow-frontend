@@ -1,5 +1,5 @@
 import { stopFetchingData } from './weatherFetch';
-import axios from 'axios'
+// import axios from 'axios'
 import fetchJsonp from 'fetch-jsonp';
 
 const weatherAPI = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}/`

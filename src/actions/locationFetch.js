@@ -1,7 +1,7 @@
-export const stopFetchingLocation = () => {
-    return { type: 'STOP_FETCHING_LOCATION' }
+export const stopFetchingLocationData = () => {
+    return { type: 'STOP_FETCHING_LOCATION_DATA' }
   }
   
-  export const startFetchingLocation = () => {
-    return { type: 'START_FETCHING_LOCATION' }
+  export const startFetchingLocationData = () => {
+    return { type: 'START_FETCHING_LOCATION_DATA' }
   }

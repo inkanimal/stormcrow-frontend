@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser, logout } from "./actions/currentUser";
-import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Signup from './components/Signup'
 import Login from './components/Login'
 // import Logout from './components/Logout'
@@ -17,8 +17,8 @@ import ForecastNavbar from './components/forecasts/ForecastNavbar'
 import { changeWeatherRoute } from './actions/weatherRoute';
 import { stopFetchingData } from './actions/weatherFetch';
 import { fetchWeatherData } from './actions/weatherData';
-import { stopFetchingLocation } from './actions/locationFetch';
-import { fetchLocationName } from './actions/locationName';
+import { stopFetchingLocationData } from './actions/locationFetch';
+import { fetchLocationData } from './actions/locationData';
 import logo from './logo.svg';
 
 
@@ -32,7 +32,7 @@ class App extends React.Component {
    componentDidMount(){
        this.props.fetchWeatherData()
        this.props.getCurrentUser()
-       this.props.fetchLocationName()
+       this.props.fetchLocationData()
 
    }
 
@@ -40,7 +40,8 @@ class App extends React.Component {
 
    render(){
      const { loggedIn } = this.props
-     const { weatherData, weatherFetch, routeName, locationName, locationFetch} = this.props
+     const { weatherData, weatherFetch, routeName, locationData, locationFetch} = this.props
+     console.log(this.props)
      const forecast = weatherData[routeName]
     //  const pathName = window.location.pathname.split("/")[1];
 
@@ -63,15 +64,15 @@ class App extends React.Component {
               }} />
 
            <div className="forecast">
-             <Route path="/forecast" render={(props) => weatherFetch ?  <img src={logo} className="App-logo" alt="logo" />
+             <Route path="/forecast" render={(props) => weatherFetch ? <img src={logo} className="App-logo" alt="logo" />
                   :
                   <div>
-                    <Forecast weatherData={weatherData} locationName={locationName}/>
+                    <Forecast weatherData={weatherData} locationData={locationData}/>
                       <ForecastNavbar bg="dark" expand="lg" changeWeatherRoute={this.handleRouteChange} />
                         {routeName === 'hourly' && <ForecastHourly forecastData={forecast.data}/>}
                         {routeName === 'daily' && <ForecastDaily forecastData={forecast.data} />}
                   </div>
-                }/>
+              }/>
               </div>
           </Switch>
         
@@ -86,10 +87,12 @@ const mapStateToProps = state => {
     weatherFetch: state.weatherFetch,
     routeName: state.weatherRoute.routeName,
     weatherData: state.weatherData,
-    locationName: state.locationName,
+    locationData: state.locationData,
     locationFetch: state.locationFetch
   })
 }
 
 
-export default connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, stopFetchingData, fetchWeatherData, logout, stopFetchingLocation, fetchLocationName,  })(App);
+export default connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, 
+                                          stopFetchingData, fetchWeatherData, logout, 
+                                          stopFetchingLocationData, fetchLocationData })(App);

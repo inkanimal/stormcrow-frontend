@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import './ForecastHourly.css'
-import { Card, CardColumns } from "reactstrap";
+
 
 const ForecastHourly = ({ forecastData }) => {
   const renderForecast = forecastData.map((forecast, index) => {
