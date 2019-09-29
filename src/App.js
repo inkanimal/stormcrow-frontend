@@ -17,6 +17,8 @@ import ForecastNavbar from './components/forecasts/ForecastNavbar'
 import { changeWeatherRoute } from './actions/weatherRoute';
 import { stopFetchingData } from './actions/weatherFetch';
 import { fetchWeatherData } from './actions/weatherData';
+import { stopFetchingSearchData } from './actions/searchWeatherFetch';
+import { fetchSearchWeatherData } from './actions/searchWeatherData';
 import { stopFetchingLocationData } from './actions/locationFetch';
 import { fetchLocationData } from './actions/locationData';
 import logo from './logo.svg';
@@ -33,6 +35,7 @@ class App extends React.Component {
        this.props.fetchWeatherData()
        this.props.getCurrentUser()
        this.props.fetchLocationData()
+       this.props.fetchSearchWeatherData()
 
    }
 
@@ -40,7 +43,7 @@ class App extends React.Component {
 
    render(){
      const { loggedIn } = this.props
-     const { weatherData, weatherFetch, routeName, locationData, locationFetch} = this.props
+     const { weatherData, weatherFetch, routeName, locationData, locationFetch, searchWeatherFetch, searchWeatherData} = this.props
      console.log(this.props)
      const forecast = weatherData[routeName]
     //  const pathName = window.location.pathname.split("/")[1];
@@ -97,7 +100,9 @@ const mapStateToProps = state => {
     routeName: state.weatherRoute.routeName,
     weatherData: state.weatherData,
     locationFetch: state.locationFetch,
-    locationData: state.locationData
+    locationData: state.locationData,
+    searchWeatherData: state.searchWeatherData,
+    searchWeatherFetch: state.searchWeatherFetch
     
   })
 }
@@ -105,4 +110,5 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, 
                                           stopFetchingData, fetchWeatherData, logout, 
-                                          stopFetchingLocationData, fetchLocationData })(App);
+                                          stopFetchingLocationData, fetchLocationData,
+                                          stopFetchingSearchData, fetchSearchWeatherData })(App);

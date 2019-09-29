@@ -24,8 +24,8 @@ export const fetchLocationData = () => {
 
       Geocode.fromLatLng(`${latitude}`, `${longitude}`)
         // .then(response => response.json())
-        .then(locationData => {
-          // const locationData = response.results[5]
+        .then(response => {
+          const locationData = response.results[5]
           console.log(locationData)
           dispatch(receivedLocationData(locationData))
           dispatch(stopFetchingLocationData())     
@@ -37,12 +37,3 @@ export const fetchLocationData = () => {
   }
 }
 
-// Geocode.fromAddress("from search bar results").then(
-//   response => {
-//     const { lat, lng } = response.results[0].geometry.location;
-//     console.log(lat, lng);
-//   },
-//   error => {
-//     console.error(error);
-//   }
-// );
