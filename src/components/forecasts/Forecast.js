@@ -6,6 +6,7 @@ import ForecastHourly from './ForecastHourly'
 // import ForecastNavbar from './components/forecasts/ForecastNavbar'
 import { Route } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import Location from './Location'
 
 
 const Forecast = ({ weatherData: { 
@@ -24,7 +25,7 @@ const Forecast = ({ weatherData: {
                                      nearestStormDistance,
                                      visibility,
                                      uvIndex}, 
-                             daily: { data } } }) =>
+                            daily: { data } } }) =>
   <span className="block-today border">
   <div className="today" >
     <div className="container">
@@ -41,8 +42,9 @@ const Forecast = ({ weatherData: {
              <div className="feels">Feels Like</div>  <div className="feels-temp">{Math.round(apparentTemperature)}°</div>
          </div> 
 
-         <div className="location">
+         <div className="local">
            {/* { results[5].address_components[0].long_name } */}
+           
          </div>
     
     

@@ -13,7 +13,7 @@ import "./Navbar.css";
 const Navbar = ({ currentUser, loggedIn }) => {
  
     return  loggedIn ? 
-  
+     
       <Nav className="navbar-user" >
         <Form inline className="city-search">
           <FormControl className="search-form" type="text" placeholder="Enter City"  />

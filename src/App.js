@@ -9,7 +9,7 @@ import Login from './components/Login'
 import Navbar from './components/Navbar'
 
 import Home from "./containers/Home";
-
+import Location from './components/forecasts/Location'
 import Forecast from './components/forecasts/Forecast'
 import ForecastDaily from './components/forecasts/ForecastDaily'
 import ForecastHourly from './components/forecasts/ForecastHourly'
@@ -74,6 +74,15 @@ class App extends React.Component {
                   </div>
               }/>
               </div>
+
+              <div className="local-data">
+                <Route path="/location" render={(props) => locationFetch ?  <img src={logo} className="App-logo" alt="logo" />
+                   :
+                  <div>
+                    <Location location={locationData}/>
+                  </div>
+                  }/>
+                  </div>
           </Switch>
         
     </div>
@@ -87,8 +96,9 @@ const mapStateToProps = state => {
     weatherFetch: state.weatherFetch,
     routeName: state.weatherRoute.routeName,
     weatherData: state.weatherData,
-    locationData: state.locationData,
-    locationFetch: state.locationFetch
+    locationFetch: state.locationFetch,
+    locationData: state.locationData
+    
   })
 }
 
