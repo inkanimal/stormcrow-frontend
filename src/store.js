@@ -6,6 +6,10 @@ import signupForm from './reducers/signupForm';
 import weatherData from './reducers/weatherData';
 import weatherFetch from './reducers/weatherFetch';
 import weatherRoute from './reducers/weatherRoute';
+import locationData from './reducers/locationData';
+import locationFetch from './reducers/locationFetch';
+import searchWeatherData from './reducers/searchWeatherData';
+import searchWeatherFetch from './reducers/searchWeatherFetch';
 
 
 const reducer = combineReducers({
@@ -14,7 +18,11 @@ const reducer = combineReducers({
    signupForm,
    weatherData,
    weatherFetch,
-   weatherRoute
+   weatherRoute,
+   locationData,
+   locationFetch,
+   searchWeatherData,
+   searchWeatherFetch
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

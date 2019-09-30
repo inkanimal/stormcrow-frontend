@@ -15,10 +15,13 @@ const Navbar = ({ currentUser, loggedIn }) => {
     return  loggedIn ? 
      
       <Nav className="navbar-user" >
-        <Form inline className="city-search">
-          <FormControl className="search-form" type="text" placeholder="Enter City"  />
+        <Form inline className="city-search" >
+          <FormControl className="search-form" type="text" placeholder="Enter City" value=""  />
             <Button className="button" variant="city search">SEARCH</Button>
        </Form>
+       <NavItem className="current">
+         <Link to="/forecast">CURRENT WEATHER</Link>
+       </NavItem>
         <NavItem className="navbar-text">
           {currentUser.attributes.username}
         </NavItem>

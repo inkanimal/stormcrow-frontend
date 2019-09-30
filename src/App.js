@@ -14,6 +14,10 @@ import Forecast from './components/forecasts/Forecast'
 import ForecastDaily from './components/forecasts/ForecastDaily'
 import ForecastHourly from './components/forecasts/ForecastHourly'
 import ForecastNavbar from './components/forecasts/ForecastNavbar'
+import CityForecast from './components/cityForecasts/CityForecast'
+import CityForecastDaily from './components/cityForecasts/CityForecastDaily'
+import CityForecastHourly from './components/cityForecasts/CityForecastHourly'
+import CityNavbar from './components/cityForecasts/CityNavbar'
 import { changeWeatherRoute } from './actions/weatherRoute';
 import { stopFetchingData } from './actions/weatherFetch';
 import { fetchWeatherData } from './actions/weatherData';
@@ -33,9 +37,10 @@ class App extends React.Component {
   
    componentDidMount(){
        this.props.fetchWeatherData()
-       this.props.getCurrentUser()
        this.props.fetchLocationData()
        this.props.fetchSearchWeatherData()
+       this.props.getCurrentUser()
+      
 
    }
 
@@ -46,6 +51,7 @@ class App extends React.Component {
      const { weatherData, weatherFetch, routeName, locationData, locationFetch, searchWeatherFetch, searchWeatherData} = this.props
      console.log(this.props)
      const forecast = weatherData[routeName]
+     const cityForecast = searchWeatherData[routeName]
     //  const pathName = window.location.pathname.split("/")[1];
 
      return (
@@ -74,6 +80,18 @@ class App extends React.Component {
                       <ForecastNavbar bg="dark" expand="lg" changeWeatherRoute={this.handleRouteChange} />
                         {routeName === 'hourly' && <ForecastHourly forecastData={forecast.data}/>}
                         {routeName === 'daily' && <ForecastDaily forecastData={forecast.data} />}
+                  </div>
+              }/>
+              </div>
+
+              <div className="city-forecast">
+             <Route path="/cityforecast" render={(props) => searchWeatherFetch ? <img src={logo} className="App-logo" alt="logo" />
+                  :
+                  <div>
+                    <CityForecast searchWeatherData={searchWeatherData} />
+                      <CityNavbar bg="dark" expand="lg" changeWeatherRoute={this.handleRouteChange} />
+                        {routeName === 'hourly' && <CityForecastHourly forecastData={cityForecast.data}/>}
+                        {routeName === 'daily' && <CityForecastDaily forecastData={cityForecast.data} />}
                   </div>
               }/>
               </div>

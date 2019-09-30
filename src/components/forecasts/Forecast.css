@@ -46,7 +46,14 @@
 .cc {
     font-family: "Lato", sans-serif;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 18px;
+
+}
+
+.local {
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
 
 }
 
@@ -73,7 +80,7 @@
     color: #afafaf;
     font-family: 'Lato', sans-serif;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 15px;
 }
 

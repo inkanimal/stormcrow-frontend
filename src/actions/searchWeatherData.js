@@ -6,6 +6,7 @@ import Geocode from "react-geocode";
 const weatherAPI = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}/`
 
 const receivedSearchWeatherData = searchWeatherData => {
+    // debugger
   return {
     type: 'RECEIVED_SEARCH_WEATHER_DATA',
     searchWeatherData
@@ -13,20 +14,17 @@ const receivedSearchWeatherData = searchWeatherData => {
 }
 
 export const fetchSearchWeatherData = () => {
-  return dispatch => {
-    return Geocode.fromAddress("minneapolis").then(
-        response => {
-          const { lat, lng } = response.results[0].geometry.location;
-          console.log(lat, lng);
-      
+  return async dispatch => {
+    const response = await Geocode.fromAddress("minneapolis");
+      const { lat, lng } = response.results[0].geometry.location;
+      console.log(lat, lng);
       fetchJsonp(`${weatherAPI}${lat},${lng}`)
-        .then(response => response.json())
-        .then(searchWeatherData => {
-            console.log(searchWeatherData)
-          dispatch(receivedSearchWeatherData(searchWeatherData))
-          dispatch(stopFetchingSearchData())
-        })
-    });
+          .then(response_1 => response_1.json())
+          .then(searchWeatherData => {
+              console.log(searchWeatherData);
+              dispatch(receivedSearchWeatherData(searchWeatherData));
+              dispatch(stopFetchingSearchData());
+          });
   }
   
 }

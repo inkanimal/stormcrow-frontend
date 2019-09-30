@@ -1,15 +1,15 @@
 import React from 'react'
 import moment from 'moment'
-import './Forecast.css'
+import '../forecasts/Forecast.css'
 // import ForecastDaily from './components/forecasts/ForecastDaily'
-import ForecastHourly from './ForecastHourly'
+// import ForecastHourly from './ForecastHourly'
 // import ForecastNavbar from './components/forecasts/ForecastNavbar'
 import { Route } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import Location from './Location'
 
 
-const Forecast = ({ weatherData: { 
+
+const CityForecast = ({ searchWeatherData: { 
                         currently: { apparentTemperature, 
                                      precipProbability, 
                                      humidity,
@@ -25,7 +25,7 @@ const Forecast = ({ weatherData: {
                                      nearestStormDistance,
                                      visibility,
                                      uvIndex}, 
-                            daily: { data } }, locationData: { results } }) =>
+                            daily: { data } } }) =>
   <span className="block-today border">
   <div className="today" >
     <div className="container">
@@ -43,7 +43,7 @@ const Forecast = ({ weatherData: {
          </div> 
 
          <div className="local">
-           { (results[5].address_components[0].long_name).toUpperCase() }
+           {/* { results[5].address_components[0].long_name } */}
            
          </div>
     
@@ -68,11 +68,7 @@ const Forecast = ({ weatherData: {
       <p>Cloud Cover: {Math.round(cloudCover * 100)}%</p>
       </div>
        
-       <div>
-         <Link to={"/forecasthourly"}>Hourly</Link>
-       </div>
-      <Route path={"/forecast/forecasthourly"} exact component={ForecastHourly}/>
-    </div>
+      </div>
     </span>
 
 
@@ -82,6 +78,4 @@ function degToCompass(num) {
   return arr[(val % 16)];
 }
 
-export default Forecast
-
-
+export default CityForecast

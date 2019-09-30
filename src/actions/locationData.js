@@ -25,7 +25,7 @@ export const fetchLocationData = () => {
       Geocode.fromLatLng(`${latitude}`, `${longitude}`)
         // .then(response => response.json())
         .then(response => {
-          const locationData = response.results[5]
+          const locationData = response
           console.log(locationData)
           dispatch(receivedLocationData(locationData))
           dispatch(stopFetchingLocationData())     
