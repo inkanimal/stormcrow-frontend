@@ -4,8 +4,8 @@ import '../forecasts/Forecast.css'
 // import ForecastDaily from './components/forecasts/ForecastDaily'
 // import ForecastHourly from './ForecastHourly'
 // import ForecastNavbar from './components/forecasts/ForecastNavbar'
-import { Route } from 'react-router-dom';
-import { Link } from "react-router-dom";
+// import { Route } from 'react-router-dom';
+// import { Link } from "react-router-dom";
 
 
 

@@ -2,9 +2,10 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser, logout } from "./actions/currentUser";
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import Signup from './components/Signup'
 import Login from './components/Login'
+import Search from './components/Search'
 // import Logout from './components/Logout'
 import Navbar from './components/Navbar'
 
@@ -38,7 +39,7 @@ class App extends React.Component {
    componentDidMount(){
        this.props.fetchWeatherData()
        this.props.fetchLocationData()
-       this.props.fetchSearchWeatherData()
+      //  this.props.fetchSearchWeatherData()
        this.props.getCurrentUser()
       
 
@@ -48,7 +49,7 @@ class App extends React.Component {
 
    render(){
      const { loggedIn } = this.props
-     const { weatherData, weatherFetch, routeName, locationData, locationFetch, searchWeatherFetch, searchWeatherData} = this.props
+     const { weatherData, weatherFetch, routeName, locationData, searchWeatherFetch, searchWeatherData} = this.props
      console.log(this.props)
      const forecast = weatherData[routeName]
      const cityForecast = searchWeatherData[routeName]
@@ -71,6 +72,7 @@ class App extends React.Component {
               this.props.logout()
                return <Redirect to = '/' />
               }} />
+           <Route path="/search" exact component={Search}/>
 
            <div className="forecast">
              <Route path="/forecast" render={(props) => weatherFetch ? <img src={logo} className="App-logo" alt="logo" />
@@ -85,6 +87,7 @@ class App extends React.Component {
               </div>
 
               <div className="city-forecast">
+                
              <Route path="/cityforecast" render={(props) => searchWeatherFetch ? <img src={logo} className="App-logo" alt="logo" />
                   :
                   <div>
@@ -96,14 +99,6 @@ class App extends React.Component {
               }/>
               </div>
 
-              <div className="local-data">
-                <Route path="/location" render={(props) => locationFetch ?  <img src={logo} className="App-logo" alt="logo" />
-                   :
-                  <div>
-                    <Location location={locationData}/>
-                  </div>
-                  }/>
-                  </div>
           </Switch>
         
     </div>
@@ -126,7 +121,7 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, 
+export default withRouter(connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, 
                                           stopFetchingData, fetchWeatherData, logout, 
                                           stopFetchingLocationData, fetchLocationData,
-                                          stopFetchingSearchData, fetchSearchWeatherData })(App);
+                                          stopFetchingSearchData, fetchSearchWeatherData })(App));

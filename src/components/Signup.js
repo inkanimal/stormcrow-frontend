@@ -26,29 +26,32 @@ const Signup = ({signupFormData, updateSignupForm, signup, history }) => {
         <div className="signup">
         <form onSubmit={handleSubmit}>
             <FormGroup controlId="username" bsSize="large">
-                <ControlLabel>Username</ControlLabel>
+                {/* <ControlLabel>Username</ControlLabel> */}
                 <FormControl
                 autoFocus
                 name="username"
                 type="text"
+                placeholder="Username"
                 value={signupFormData.username} 
                 onChange={handleUserInfoInputChange}/>
             </FormGroup>
             <FormGroup controlId="email" bsSize="large">
-                <ControlLabel>Email</ControlLabel>
+                {/* <ControlLabel>Email</ControlLabel> */}
                 <FormControl
                 autoFocus
                 name="email"
                 type="text"
+                placeholder="Email"
                 value={signupFormData.email} 
                 onChange={handleUserInfoInputChange}/>
             </FormGroup>
             <FormGroup controlId="password" bsSize="large">
-                <ControlLabel>Password</ControlLabel>
+                {/* <ControlLabel>Password</ControlLabel> */}
                 <FormControl
                 autoFocus
                 name="password"
                 type="text"
+                placeholder="Password"
                 value={signupFormData.password} 
                 onChange={handleUserInfoInputChange}/>
             </FormGroup>

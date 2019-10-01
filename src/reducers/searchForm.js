@@ -3,10 +3,10 @@ const initialState = {
    
 }
 
-export default (state = initialState, aciton) => {
-    switch (aciton.type) {
+export default (state = initialState, action) => {
+    switch (action.type) {
         case "UPDATE_SEARCH_FORM":
-            return aciton.formData
+            return action.formData
         case "RESET_SEARCH_FORM":
             return initialState
         default:

@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateSearchForm } from '../actions/searchForm';
-import { citySearch } from '../actions/';
+import { fetchSearchWeatherData } from '../actions/searchWeatherData';
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import './Search.css';
 
-const CitySearch = ({searchFormData, updateSearchForm, citySearch, history }) => {
+const Search = ({searchFormData, updateSearchForm, fetchSearchWeatherData, history }) => {
  
-    const handleUserInfoInputChange = e => {
+    const handleChange = e => {
         const { name, value } = e.target
         const updatedFormInfo = {
-            ...signupFormData,
+            ...searchFormData,
             [name]: value
         }
         updateSearchForm(updatedFormInfo)
@@ -17,28 +18,29 @@ const CitySearch = ({searchFormData, updateSearchForm, citySearch, history }) =>
 
     const handleSubmit = e => {
         e.preventDefault()
-        citySearch(searchFormData, history)
+        fetchSearchWeatherData(searchFormData, history)
     }
 
 return (
     <div className="search">
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} >
         <FormGroup controlId="search" bsSize="large">
             
-            <FormControl
+            <FormControl 
             autoFocus
-            name=""
+            name="city"
             type="text"
-            value={signupFormData.username} 
-            onChange={handleUserInfoInputChange}/>
+            placeholder="Enter City"
+            value={searchFormData.city} 
+            onChange={handleChange}/>
         </FormGroup>
 
-        <Button
+        <Button className="search-button"
               block
               bsSize="large"
               type="submit"
-              value="Signup" >
-            Sign Up
+              value="Search" >
+            SEARCH
           </Button>
             
         </form>
@@ -52,8 +54,8 @@ return (
 
 const mapStateToProps = state => {
     return {
-        searchFormData: state.searchForm
+        searchFormData: state.searchFormData
     }
 }
 
-export default connect(mapStateToProps, { updateSearchForm, citySearch } )(CitySearch)
+export default connect(mapStateToProps, { updateSearchForm, fetchSearchWeatherData } )(Search)

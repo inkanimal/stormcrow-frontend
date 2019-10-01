@@ -10,7 +10,7 @@ import locationData from './reducers/locationData';
 import locationFetch from './reducers/locationFetch';
 import searchWeatherData from './reducers/searchWeatherData';
 import searchWeatherFetch from './reducers/searchWeatherFetch';
-
+import searchFormData from './reducers/searchForm'
 
 const reducer = combineReducers({
    currentUser,
@@ -22,7 +22,8 @@ const reducer = combineReducers({
    locationData,
    locationFetch,
    searchWeatherData,
-   searchWeatherFetch
+   searchWeatherFetch,
+   searchFormData
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
