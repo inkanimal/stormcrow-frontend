@@ -43,7 +43,7 @@ const CityForecast = ({ searchWeatherData: {
          </div> 
 
          <div className="local">
-           { results[5].formatted_address }
+           { (results[5].formatted_address).toUpperCase() }
            
          </div>
     
@@ -57,15 +57,15 @@ const CityForecast = ({ searchWeatherData: {
       </div>
       
       <div className="container-two">
-      <h4>Chance of Rain: {Math.round(precipProbability * 100)}%</h4>
-      <h4>Humidity: {Math.round(humidity * 100)}%</h4>
-      <h4>Dew Point: {Math.round(data[0].dewPoint)}°</h4>
-      <p>Sunrise: {moment.unix(data[0].sunriseTime).format('HH:mm')}</p>
-      <p>Sunset: {moment.unix(data[0].sunsetTime).format('HH:mm')}</p>
-      <p>Wind: {degToCompass(windBearing)} @ {Math.round(windSpeed)} mph | Gusting to: {Math.round(windGust)} mph</p>
-      <p>Pressure: {(pressure * 0.0295301).toFixed(2)} inHg</p>
-      <p>Visibility: {(visibility).toFixed(2)} Miles</p>
-      <p>Cloud Cover: {Math.round(cloudCover * 100)}%</p>
+      <h5>Chance of Rain: {Math.round(precipProbability * 100)}%</h5>
+      <h5>Humidity: {Math.round(humidity * 100)}%</h5>
+      <h5>Dew Point: {Math.round(data[0].dewPoint)}°</h5>
+      <h5>Sunrise: {moment.unix(data[0].sunriseTime).format('HH:mm')}</h5>
+      <h5>Sunset: {moment.unix(data[0].sunsetTime).format('HH:mm')}</h5>
+      <h5>Wind: {degToCompass(windBearing)} @ {Math.round(windSpeed)} mph | Gusting to: {Math.round(windGust)} mph</h5>
+      <h5>Pressure: {(pressure * 0.0295301).toFixed(2)} inHg</h5>
+      <h5>Visibility: {(visibility).toFixed(2)} Miles</h5>
+      <h5>Cloud Cover: {Math.round(cloudCover * 100)}%</h5>
       </div>
        
       </div>
