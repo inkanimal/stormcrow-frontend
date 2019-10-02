@@ -1,24 +1,18 @@
 .search {
-    padding: 60px 0;
-    margin-left: 150px;
+    padding: 60px;
+    
     
   }
 
-  
-
-  #search {
+  .search form {
     margin: 0 auto;
     max-width: 320px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 450;
-    color: #ffff;
-    background: #000000;
-    border: 1px solid #4d4d4d;
-    
-    
+    color: #ffff; 
   }
 
-  .search-button {
+  .search button {
     margin: 0 auto;
     max-width: 320px; 
     color: #ffffff;
@@ -28,6 +22,12 @@
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;  
+  }
 
+  #search {
     
+    color: #ffffff;
+    border: 1px solid #4d4d4d;
+    color: #4d4d4d;
+    background: #000000;
   }

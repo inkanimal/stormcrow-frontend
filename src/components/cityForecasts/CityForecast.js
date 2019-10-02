@@ -25,7 +25,7 @@ const CityForecast = ({ searchWeatherData: {
                                      nearestStormDistance,
                                      visibility,
                                      uvIndex}, 
-                            daily: { data } } }) =>
+                            daily: { data } }, searchLocationData: { results }  }) =>
   <span className="block-today border">
   <div className="today" >
     <div className="container">
@@ -43,7 +43,7 @@ const CityForecast = ({ searchWeatherData: {
          </div> 
 
          <div className="local">
-           {/* { results[5].address_components[0].long_name } */}
+           { results[5].formatted_address }
            
          </div>
     

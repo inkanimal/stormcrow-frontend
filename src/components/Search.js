@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateSearchForm } from '../actions/searchForm';
 import { fetchSearchWeatherData } from '../actions/searchWeatherData';
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { fetchSearchLocal } from '../actions/searchLocal';
+import { Button, FormGroup, FormControl, Row, Col, Form} from "react-bootstrap";
 import './Search.css';
 
-const Search = ({searchFormData, updateSearchForm, fetchSearchWeatherData, history }) => {
+const Search = ({searchFormData, updateSearchForm, fetchSearchWeatherData, history, fetchSearchLocal }) => {
  
     const handleChange = e => {
         const { name, value } = e.target
@@ -19,11 +20,13 @@ const Search = ({searchFormData, updateSearchForm, fetchSearchWeatherData, histo
     const handleSubmit = e => {
         e.preventDefault()
         fetchSearchWeatherData(searchFormData, history)
+        fetchSearchLocal(searchFormData)
     }
 
 return (
     <div className="search">
-    <form onSubmit={handleSubmit} >
+    <Form inLine onSubmit={handleSubmit} >
+        
         <FormGroup controlId="search" bsSize="large">
             
             <FormControl 
@@ -33,8 +36,9 @@ return (
             placeholder="Enter City"
             value={searchFormData.city} 
             onChange={handleChange}/>
+           
         </FormGroup>
-
+      
         <Button className="search-button"
               block
               bsSize="large"
@@ -42,9 +46,11 @@ return (
               value="Search" >
             SEARCH
           </Button>
-            
-        </form>
-        </div>
+          
+        </Form>
+      
+      </div>
+        
 
 )
 }
@@ -58,4 +64,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateSearchForm, fetchSearchWeatherData } )(Search)
+export default connect(mapStateToProps, { updateSearchForm, fetchSearchWeatherData, fetchSearchLocal  } )(Search)

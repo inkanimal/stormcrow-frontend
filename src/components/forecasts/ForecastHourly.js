@@ -33,7 +33,7 @@ const ForecastHourly = ({ forecastData }) => {
         </div>
         
         <div className="hourly-data">
-        Chance of Precipitation: {precipProbability * 100}%
+        Chance of Precipitation: {Math.round(precipProbability * 100)}%
         Humidity: {Math.round(humidity * 100)}%
         </div>
 

@@ -68,6 +68,14 @@
   justify-content: space-around;
 }
 
+.search {
+  font-size: 14px;
+  font-family: 'lato', sans-serif;
+  font-weight: 600;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .search-form {
   border: 1px solid #4d4d4d;
   color: #4d4d4d;

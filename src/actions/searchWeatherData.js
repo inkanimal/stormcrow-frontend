@@ -6,6 +6,8 @@ import { resetSearchForm } from './searchForm'
 
 const weatherAPI = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}/`
 
+Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_API_KEY}`);
+
 const receivedSearchWeatherData = searchWeatherData => {
     // debugger
   return {
@@ -27,9 +29,12 @@ export const fetchSearchWeatherData = (searchFormData, history) => {
               console.log(searchWeatherData);
               dispatch(receivedSearchWeatherData(searchWeatherData));
               dispatch(stopFetchingSearchData())
+              dispatch(resetSearchForm())
               history.push('/cityforecast');
           });
   }
+
+  
   
 }
 

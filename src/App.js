@@ -26,6 +26,8 @@ import { stopFetchingSearchData } from './actions/searchWeatherFetch';
 import { fetchSearchWeatherData } from './actions/searchWeatherData';
 import { stopFetchingLocationData } from './actions/locationFetch';
 import { fetchLocationData } from './actions/locationData';
+import { stopFetchingLocalData } from './actions/fetchLocal';
+import { fetchSearchLocal } from './actions/searchLocal';
 import logo from './logo.svg';
 
 
@@ -39,6 +41,7 @@ class App extends React.Component {
    componentDidMount(){
        this.props.fetchWeatherData()
        this.props.fetchLocationData()
+      //  this.props.fetchSearchLocal()
       //  this.props.fetchSearchWeatherData()
        this.props.getCurrentUser()
       
@@ -49,7 +52,7 @@ class App extends React.Component {
 
    render(){
      const { loggedIn } = this.props
-     const { weatherData, weatherFetch, routeName, locationData, searchWeatherFetch, searchWeatherData} = this.props
+     const { weatherData, weatherFetch, routeName, locationData, searchWeatherFetch, searchWeatherData, searchLocationData} = this.props
      console.log(this.props)
      const forecast = weatherData[routeName]
      const cityForecast = searchWeatherData[routeName]
@@ -74,6 +77,16 @@ class App extends React.Component {
               }} />
            <Route path="/search" exact component={Search}/>
 
+           
+           <Route path="/cityforecast" render={(props) => <div>
+                 <CityForecast searchWeatherData={searchWeatherData} searchLocationData={searchLocationData}/> 
+                 <CityNavbar bg="dark" expand="lg" changeWeatherRoute={this.handleRouteChange} />
+                 {routeName === 'hourly' && <CityForecastHourly forecastData={cityForecast.data}/>}
+                 {routeName === 'daily' && <CityForecastDaily forecastData={cityForecast.data} />}
+                 </div>
+                }/>
+         
+
            <div className="forecast">
              <Route path="/forecast" render={(props) => weatherFetch ? <img src={logo} className="App-logo" alt="logo" />
                   :
@@ -86,9 +99,8 @@ class App extends React.Component {
               }/>
               </div>
 
-              <div className="city-forecast">
-                
-             <Route path="/cityforecast" render={(props) => searchWeatherFetch ? <img src={logo} className="App-logo" alt="logo" />
+               {/* <div className="city-forecast">     
+              <Route path="/cityforecast" render={(props) => searchWeatherFetch ? <img src={logo} className="App-logo" alt="logo" />
                   :
                   <div>
                     <CityForecast searchWeatherData={searchWeatherData} />
@@ -97,7 +109,9 @@ class App extends React.Component {
                         {routeName === 'daily' && <CityForecastDaily forecastData={cityForecast.data} />}
                   </div>
               }/>
-              </div>
+              </div> */}
+
+           
 
           </Switch>
         
@@ -115,7 +129,9 @@ const mapStateToProps = state => {
     locationFetch: state.locationFetch,
     locationData: state.locationData,
     searchWeatherData: state.searchWeatherData,
-    searchWeatherFetch: state.searchWeatherFetch
+    searchWeatherFetch: state.searchWeatherFetch,
+    fetchLocal: state.fetchLocal,
+    searchLocationData: state.searchLocationData,
     
   })
 }
@@ -124,4 +140,5 @@ const mapStateToProps = state => {
 export default withRouter(connect(mapStateToProps, { getCurrentUser, changeWeatherRoute, 
                                           stopFetchingData, fetchWeatherData, logout, 
                                           stopFetchingLocationData, fetchLocationData,
-                                          stopFetchingSearchData, fetchSearchWeatherData })(App));
+                                          stopFetchingSearchData, fetchSearchWeatherData,
+                                          stopFetchingLocalData, fetchSearchLocal })(App));
