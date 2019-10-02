@@ -5,9 +5,9 @@ import { getCurrentUser, logout } from "./actions/currentUser";
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import Signup from './components/Signup'
 import Login from './components/Login'
-import Search from './components/Search'
+import Search from './containers/Search'
 // import Logout from './components/Logout'
-import Navbar from './components/Navbar'
+import Navbar from './containers/Navbar'
 
 import Home from "./containers/Home";
 import Location from './components/forecasts/Location'
