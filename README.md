@@ -1,8 +1,8 @@
-## Stormcrow
+## Stormcrow Backend
 
 This is the frontend of my react-redux final project. You will need two api keys to run this app. 
 A Google geocoding api: https://developers.google.com/maps/documentation/geocoding/start
-A Dark Sky api: https://darksky.net/dev
+and a Dark Sky api: https://darksky.net/dev
 
 This app gets weather data from the Dark Sky api to pulldown the local weather in your area. It
 also uses the Google api to fetch city locations to see the weather in your chosen city. 
