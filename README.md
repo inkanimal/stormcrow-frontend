@@ -10,8 +10,8 @@ also uses the Google api to fetch city locations to see the weather in your chos
 Be sure to have cloned the repo for the backend of this app before cloning this one. Assuming you have cloned the backend,
 
 Fork and clone thos repo
-## run $ npm install 
-## run $ npm start. 
+### run  npm install 
+### run  npm start. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
