@@ -7,7 +7,7 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import Search from './containers/Search'
 // import Logout from './components/Logout'
-import Navbar from './containers/Navbar'
+import Navbar from './components/Navbar'
 
 import Home from "./containers/Home";
 import Location from './components/forecasts/Location'
